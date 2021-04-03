@@ -1,0 +1,53 @@
+
+@media screen and (min-width: 768px) {
+
+  body {
+    background-color: black;
+    overflow: hidden;
+  }
+
+  small.copywrite {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    right: 0px;
+    color: white;
+    text-align: center;
+    z-index: -1;
+    font-family: monospace;
+    font-size: 11px;
+  }
+
+  svg.WobblyGeometrySVG {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.WobblyRect h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 5000;
+  font-family: Arial Narrow;
+}
+
+
+@media screen and (max-width: 767px) {
+  body {
+    background-color: black;
+    color: white;
+    height: 1000px;
+  }
+
+  svg.WobblyGrid_bg {
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    top: 0px;
+    left: 0px;
+  }
+}

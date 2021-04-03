@@ -6,18 +6,22 @@ export function useElementPosition(ref: React.MutableRefObject<HTMLElement|null>
     elementBottom: 0,
     elementLeft: 0,
     elementRight: 0,
+    elementWidth: 0,
+    elementHeight: 0,
   })
 
   const refresh = () => {
     let element = ref.current;
 
     if(element) {
-      let {left, right, top, bottom} = element.getBoundingClientRect();
+      let {left, right, top, bottom, height, width} = element.getBoundingClientRect();
       setElementPosition({
         elementTop: top,
         elementLeft: left,
         elementRight: right, 
         elementBottom: bottom,
+        elementWidth: width,
+        elementHeight: height,
       })
     }
   }
