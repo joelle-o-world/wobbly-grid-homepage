@@ -24,15 +24,29 @@
   }
 }
 
-.WobblyRect h1 {
+
+.stdPreview {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
   height: 100%;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 5000;
-  font-family: Arial Narrow;
+  font-family: Helvetica;
+  font-weight: 50;
+  cursor: zoom-in;
+}
+
+.stdPreview h1 {
+  font-weight: 50;
+}
+
+.stdPreview img {
+  flex-shrink: 1;
+  max-height: 50%;
+}
+
+.WobblyRectLabel {
+  font-family: Baskerville;
 }
 
 
