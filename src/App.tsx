@@ -4,6 +4,7 @@ import "./style.css"
 import {WobblyGeometry, WobblyRect, WobblyGrid} from './components/WobblyGeometry';
 
 import MalcolmPic from './assets/img/malcolm.png';
+import ShaneenImg from './assets/img/shaneen_cutout.png';
 
 const cols = 7, rows= 4;
 
@@ -35,9 +36,14 @@ let labels = [
     label:"a manic algorithmic music bot",
     bgcolor: "rgb(230, 94, 248)",
     textColor: "yellow",
+    url: "https://soundcloud.com/shaneenthemachine",
     preview: <div className="stdPreview">
+      <img src={ShaneenImg} />
       <h1>Shaneen the machine</h1>
     </div>,
+  },
+  {
+    label: "a sequencer for children",
   },
   {label:"a plaintext calendar app"},
   {label:"a programming language for sound synthesis"},
