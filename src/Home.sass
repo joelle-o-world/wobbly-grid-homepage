@@ -1,0 +1,131 @@
+@font-face
+  font-family: arcade
+  src: url(./assets/font/ARCADECLASSIC.TTF)
+
+
+@media screen and (min-width: 768px)
+
+  body
+    background-color: black
+    overflow: hidden
+  
+
+  small.copywrite
+    position: absolute
+    bottom: 10px
+    left: 0px
+    right: 0px
+    color: white
+    text-align: center
+    z-index: -1
+    font-family: monospace
+    font-size: 11px
+
+  svg.WobblyGeometrySVG
+    width: 100vw
+    height: 100vh
+  
+
+
+
+.stdPreview
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  height: 100%
+  font-family: Helvetica
+  font-weight: 50
+  cursor: pointer
+  animation: FadeIn .3s
+  p
+    max-width: 450px
+  a:link, a:visited
+    color: inherit
+
+.stdPreview h1
+  font-weight: 50
+
+.stdPreview img
+  flex-shrink: 1
+  max-height: 50%
+
+.WobblyRectLabel
+  font-family: Baskerville
+
+
+@media screen and (max-width: 767px)
+  body 
+    background-color: black
+    color: white
+    height: 1000px
+
+  svg.WobblyGrid_bg
+    position: absolute
+    width: 1000px
+    height: 1000px
+    top: 0px
+    left: 0px
+
+.ShaneenPreview
+  animation: FadeIn .3s
+  cursor: pointer
+  img
+    position: absolute
+    top: 0px
+    left: 0px
+  hgroup
+    position: absolute
+    bottom: 0px
+    left: 0px
+    right: 0px
+    text-align: center
+    font-family: "Comic Sans", sans-serif
+  
+.YouNeedMoreSeaweedPreview
+  animation: FadeIn 20s
+  a:link, a:visited
+    color: inherit
+
+.SequencerPreview
+  animation: FadeIn .3s
+  font-family: arcade
+  word-spacing: 10px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 100%
+  cursor: pointer
+  hgroup
+    text-align: center
+    h1
+      background-color: rgb(170, 3, 0)
+      color: rgb(253, 255, 85)
+      margin: 0px
+      padding: 5px
+      font-size: 50px
+    h2
+      background-color: rgb(52,170,170)
+      color: rgb(33, 48,174)
+      margin: 0px
+      padding: 5px
+  p
+    font-size: 25px
+  .ClickToBegin
+    display: block
+    font-size: 35px
+    animation: flasher 1s linear infinite
+    color: rgb(253, 255, 85)
+    text-align: center
+
+@keyframes FadeIn
+  0%
+    opacity: 0
+    transform: scale(0.8)
+  100%
+    opacity: 1
+
+
+@keyframes flasher
+  50%
+    opacity: 0

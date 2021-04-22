@@ -39,6 +39,8 @@ export interface WobblyGridProps {
   bulgeFactor?: number;
   pattern?: React.StyleHTMLAttributes<SVGPolygonElement>[];
   labels?: {[cellId: number]: string}
+  hideLabels?: boolean;
+  showLabels?: boolean;
 }
 
 
@@ -48,7 +50,9 @@ export const WobblyGrid: FunctionComponent<WobblyGridProps> = ({
   anchorEdges=false,
   bulgeFactor=500,
   pattern=RainbowPattern,
-  labels = {}
+  labels = {},
+  hideLabels=false,
+  showLabels=!hideLabels,
 }) => {
 
   const svgRef = useRef(null)
@@ -114,7 +118,7 @@ export const WobblyGrid: FunctionComponent<WobblyGridProps> = ({
 
       squares.push((<g key={i}>
         <polygon points={abcd} style={pattern[i%pattern.length]}/>
-        {label}
+        {showLabels ? label : null}
       </g>))
     }
   }

@@ -15,9 +15,9 @@ const RainbowPattern = [
   'red',
   'orange',
   'yellow',
-  'green',
-  'blue',
-  'purple'
+  '#00ff00',
+  '#0000ff',
+  '#ff00ff'
 ];
 
 const WobblyContext = createContext({
@@ -78,6 +78,7 @@ export interface WobblyRectContent {
   preview?: ReactNode;
   bgcolor?: string;
   textColor?: string;
+  url?: string;
 }
 
 export const WobblyRect: FunctionComponent<{
@@ -91,6 +92,7 @@ export const WobblyRect: FunctionComponent<{
   style?: React.CSSProperties;
   bgcolor?: string;
   textColor?: string
+  onClick?: (e:React.MouseEvent) => void;
 }> = ({
   x, 
   y, 
@@ -101,7 +103,8 @@ export const WobblyRect: FunctionComponent<{
   preview, 
   showPreview=false, 
   bgcolor='white', 
-  textColor="black"
+  textColor="black",
+  onClick,
 }) => {
   const {mapPoint} = useContext(WobblyContext);
 
@@ -156,6 +159,7 @@ export const WobblyRect: FunctionComponent<{
 
   return <g 
     className="WobblyRect" 
+    onClick={onClick}
   >
     <polygon points={points} style={style} fill={bgcolor} />
 
@@ -174,6 +178,7 @@ export const WobblyGrid: FunctionComponent<{
   x?:number;
   y?:number;
   content?: {[key:number]: WobblyRectContent};
+  hideLabels?: boolean;
 }> = ({
   pattern=RainbowPattern, 
   rows, 
@@ -183,6 +188,7 @@ export const WobblyGrid: FunctionComponent<{
   x=0,
   y=0,
   content=[],
+  hideLabels=false,
 }) => {
 
   const cellWidth = width / cols;
@@ -206,8 +212,13 @@ export const WobblyGrid: FunctionComponent<{
     const showPreview = preview !== null && (focusCell === i)
     const bgcolor = content[i] ? (content[i].bgcolor || pattern[i%pattern.length]) : pattern[i%pattern.length];
     const textColor = content[i] ? content[i].textColor : undefined;
+    const handleClick = () => {
+      let url = content[i].url
+      if(url)
+        window.open(url, '_blank');
+    }
     cells.push(
-      <WobblyRect x={cellX} y={cellY} width={cellWidth} height={cellHeight} bgcolor={bgcolor} textColor={textColor} key={i} label={label} showPreview={showPreview} preview={preview}>
+      <WobblyRect x={cellX} y={cellY} width={cellWidth} height={cellHeight} bgcolor={bgcolor} textColor={textColor} key={i} label={hideLabels ? undefined :label} showPreview={showPreview} preview={preview} onClick={handleClick}>
       </WobblyRect>
     )
 
