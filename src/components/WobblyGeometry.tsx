@@ -213,7 +213,7 @@ export const WobblyGrid: FunctionComponent<{
     const bgcolor = content[i] ? (content[i].bgcolor || pattern[i%pattern.length]) : pattern[i%pattern.length];
     const textColor = content[i] ? content[i].textColor : undefined;
     const handleClick = () => {
-      let url = content[i].url
+      let url = content[i]?.url
       if(url)
         window.open(url, '_blank');
     }
