@@ -9,7 +9,6 @@ const cols = 4, rows= 4;
 
 
 let labels = [
-  Shaneen,
   LegAppleMan,
   DeepDrive,
   ChladniFigures,
@@ -18,6 +17,7 @@ let labels = [
   MalcolmTheCat,
   RitterDeepReading,
   AlphaChain,
+  Shaneen,
   Sequencer,
   WobblyGridSource,
 
