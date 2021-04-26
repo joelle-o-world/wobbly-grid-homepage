@@ -3,23 +3,20 @@
   src: url(./assets/font/ARCADECLASSIC.TTF)
 
 
+footer.PageFooter
+  position: absolute
+  bottom: 5px
+  left: 5px
+  right: 5px
+  text-align: center
+  color: white
+  z-index: -1
+
 @media screen and (min-width: 768px)
 
   body
     background-color: black
     overflow: hidden
-  
-
-  small.copywrite
-    position: absolute
-    bottom: 10px
-    left: 0px
-    right: 0px
-    color: white
-    text-align: center
-    z-index: -1
-    font-family: monospace
-    font-size: 11px
 
   svg.WobblyGeometrySVG
     width: 100vw
@@ -45,7 +42,12 @@
   font-weight: 50
   cursor: pointer
   animation: FadeIn .3s
+  h1
+    margin: 0px
+  .largeIcon
+    font-size: 100px
   p
+    margin-top: 0px
     max-width: 450px
   a:link, a:visited
     color: inherit

@@ -1,3 +1,4 @@
+import {IoLogoGithub} from 'react-icons/io';
 import MalcolmPic from './assets/img/malcolm.png';
 import ShaneenImg from './assets/img/shaneen_cutout.png';
 import WaveformImg from './assets/img/waveform.png';
@@ -8,8 +9,8 @@ import ChladniIMG from './assets/img/chladni.png';
 import DeepdriveWaveforms from './assets/img/deepdrive-waveforms.png';
 
 import {UndulatingText} from './components/UndulatingText';
+
 export const MalcolmTheCat = {
-  label:"a synth about my cat",
   bgcolor: "#333333",
   textColor: "white",
   year: 2020,
@@ -25,7 +26,6 @@ export const MalcolmTheCat = {
 export const YouNeedMoreSeaweed = {
   bgcolor: "rgb(174, 201, 52)",
   textColor: "rgb(41, 16,6)",
-  label:"you need more seaweed",
   year: 2019,
   url: "http://youneedmoreseaweed.today",
   preview: <div className="stdPreview YouNeedMoreSeaweedPreview">
@@ -36,7 +36,6 @@ export const YouNeedMoreSeaweed = {
 } 
 
 export const Sequencer = {
-  label: "a sequencer for children",
   bgcolor: "rgb(33, 48,174)",
   textColor: "rgb(170,170,170)",
   url: 'http://brewood.org/sequencer',
@@ -66,7 +65,6 @@ export const Shaneen = {
 }
 
 export const AudioVisualiser = {
-  label:"a web app for visualising the frequency content of an audio file",
   year: 2019,
   url: 'http://joel.forsale/audio-visualiser',
   bgcolor: 'rgb(248,233,233)',
@@ -89,7 +87,6 @@ export const RitterDeepReading = {
 }
 
 export const LegAppleMan = {
-  label:"a video game about an apple with legs",
   year: 2016,
   bgcolor: '#00ff00',
   textColor: '#ff00ff',
@@ -125,5 +122,17 @@ export const DeepDrive = {
   preview: <div className="stdPreview">
     <img src={DeepdriveWaveforms} className="screenshot"/>
     <h1>DeepDrive</h1>
+    <p>(music streaming platform)</p>
+  </div>
+}
+
+export const WobblyGridSource = {
+  url: 'https://github.com/joelyjoel/wobbly-grid-homepage',
+  year: 2021,
+  bgcolor: "rgb(250,252,252)",
+  preview: <div className="stdPreview">
+    <h1>Read the source code for this page.</h1>
+    <IoLogoGithub className="largeIcon"/>
+    <p>This page is built using React and TypeScript. Click here to read the source code on GitHub...</p>
   </div>
 }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Home.sass';
 import {WobblyGeometry, WobblyRect, WobblyGrid, WobblyRectContent} from './components/WobblyGeometry';
 
-import {Shaneen, LegAppleMan, DeepDrive, ChladniFigures, YouNeedMoreSeaweed, AudioVisualiser, MalcolmTheCat, RitterDeepReading, AlphaChain, Sequencer} from './projects';
+import {Shaneen, LegAppleMan, DeepDrive, ChladniFigures, YouNeedMoreSeaweed, AudioVisualiser, MalcolmTheCat, RitterDeepReading, AlphaChain, Sequencer, WobblyGridSource} from './projects';
 
 const cols = 4, rows= 4;
 
@@ -18,6 +18,7 @@ let labels = [
   RitterDeepReading,
   AlphaChain,
   Sequencer,
+  WobblyGridSource,
 
   //{label:"a plaintext calendar app"},
   //{label:"a programming language for sound synthesis"},
@@ -60,34 +61,35 @@ for(let label of labels)
 
 
 function App() {
-  const [cols, setCols] = useState(1);
-  useEffect(() => {
-    const handleResize = () => {
-      let windowWidth = window.innerWidth;
-      setCols(Math.ceil(windowWidth / 500));
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const [cols, setCols] = useState(4);
+  //useEffect(() => {
+    //const handleResize = () => {
+      //let windowWidth = window.innerWidth;
+      //setCols(Math.ceil(windowWidth / 500));
+    //}
+    //handleResize();
+    //window.addEventListener('resize', handleResize)
+    //return () => window.removeEventListener('resize', handleResize);
+  //}, []);
   const rows = Math.ceil(labels.length/cols);
-  const content = addBufferCells(labels, {rows, cols});
 
   return <div>
     <WobblyGeometry>
-    <WobblyGrid 
-      rows={rows} 
-      cols={cols }
-      width="80%" 
-      height="80%" 
-      y="10%" 
-      x="10%"
-      content={labels}
-      hideLabels
-      //addBlankTopRow
-      pattern={['rgba(0,0,0,0)']}
-    />
+      <WobblyGrid 
+        rows={rows} 
+        cols={cols }
+        width="80%" 
+        height="80%" 
+        y="10%" 
+        x="10%"
+        content={labels}
+        //addBlankTopRow
+        pattern={['rgba(0,0,0,0)']}
+      />
     </WobblyGeometry>
+    <footer className="PageFooter">
+      <small className="copyright">© Joel Plowright {new Date().getFullYear()}</small>
+    </footer>
   </div>
 }
 
