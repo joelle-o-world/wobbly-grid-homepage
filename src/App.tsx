@@ -3,6 +3,7 @@ import './Home.sass';
 import {WobblyGeometry, WobblyRect, WobblyGrid, WobblyRectContent} from './components/WobblyGeometry';
 
 import {Shaneen, LegAppleMan, DeepDrive, ChladniFigures, YouNeedMoreSeaweed, AudioVisualiser, MalcolmTheCat, RitterDeepReading, AlphaChain, Sequencer, WobblyGridSource} from './projects';
+import {SideBarNavigation} from './components/SideBar';
 
 const cols = 4, rows= 4;
 
@@ -73,18 +74,19 @@ function App() {
   //}, []);
   const rows = Math.ceil(labels.length/cols);
 
-  return <div>
+  return <div className="App">
+    <SideBarNavigation/>
     <WobblyGeometry>
       <WobblyGrid 
         rows={rows} 
         cols={cols }
-        width="80%" 
-        height="80%" 
-        y="10%" 
+        width="90%" 
+        height="90%" 
+        y="0%" 
         x="10%"
         content={labels}
         //addBlankTopRow
-        pattern={['rgba(0,0,0,0)']}
+        //pattern={['rgba(0,0,0,0)']}
       />
     </WobblyGeometry>
     <footer className="PageFooter">

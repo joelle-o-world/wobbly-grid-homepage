@@ -12,16 +12,24 @@ footer.PageFooter
   color: white
   z-index: -1
 
-@media screen and (min-width: 768px)
 
-  body
-    background-color: black
-    overflow: hidden
+body
+  background-color: black
+  overflow: hidden
 
-  svg.WobblyGeometrySVG
-    width: 100vw
-    height: 100vh
-  
+div.App
+  div.WobblyGeometry
+    svg.WobblyGeometrySVG
+      position: absolute
+      top: 0px
+      left: 0px
+      z-index: 20
+      pointer-events: none
+      width: 100vw
+      height: 100vh
+      >*
+        pointer-events: auto
+    
 
 
 
@@ -98,12 +106,6 @@ footer.PageFooter
     color: white
     height: 1000px
 
-  svg.WobblyGrid_bg
-    position: absolute
-    width: 1000px
-    height: 1000px
-    top: 0px
-    left: 0px
 
 .ShaneenPreview
   width: 100%
@@ -163,7 +165,7 @@ footer.PageFooter
 
 @keyframes FadeIn
   0%
-    opacity: 0.2
+    opacity: 0
     transform: scale(0.8)
   100%
     opacity: 1

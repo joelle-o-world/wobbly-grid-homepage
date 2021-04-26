@@ -30,17 +30,20 @@ const WobblyContext = createContext({
   bulgeY: 0,
   canvasWidth: 500,
   canvasHeight: 500,
+  boundPreviewsByCanvasEdge: true,
 })
 
 export interface WobblyGeometryProps {
   bulgeSize?: number;
   diminishBulgeAtEdges?: boolean;
+  boundPreviewsByCanvasEdge?: boolean;
 }
 
 export const WobblyGeometry: FunctionComponent<WobblyGeometryProps> = ({
   children,
   diminishBulgeAtEdges=false,
   bulgeSize=500,
+  boundPreviewsByCanvasEdge=true
 }) => {
 
   let svgRef = useRef(null)
@@ -85,6 +88,7 @@ export const WobblyGeometry: FunctionComponent<WobblyGeometryProps> = ({
     mapPoint,
     canvasWidth: svgRect.elementWidth,
     canvasHeight: svgRect.elementHeight,
+    boundPreviewsByCanvasEdge,
   }
 
   return <div className="WobblyGeometry">
@@ -132,7 +136,7 @@ export const WobblyRect: FunctionComponent<{
   hoverColor,
   onClick,
 }) => {
-  const {mapPoint} = useContext(WobblyContext);
+  const {mapPoint, boundPreviewsByCanvasEdge, canvasWidth, canvasHeight} = useContext(WobblyContext);
 
   let a = mapPoint(x, y);
   let b = mapPoint(x+width, y);
@@ -147,8 +151,16 @@ export const WobblyRect: FunctionComponent<{
   if(showPreview && preview) {
     let foX = Math.max(a.x, d.x) + padding;
     let foY = Math.max(a.y, b.y) + padding;
-    let foWidth = Math.min(b.x, c.x) - foX - padding
-    let foHeight = Math.min(c.y, d.y) - foY - padding
+    let foWidth , foHeight;
+    if(boundPreviewsByCanvasEdge) {
+      foX = Math.max(0, foX);
+      foY = Math.max(0, foY);
+      foWidth = Math.min(b.x, c.x, canvasWidth) - foX 
+      foHeight = Math.min(c.y, d.y, canvasHeight) - foY 
+    } else {
+      foWidth = Math.min(b.x, c.x) - foX 
+      foHeight = Math.min(c.y, d.y) - foY 
+    }
     const maskID = x+'_'+y
     overlay = <g>
       <foreignObject 

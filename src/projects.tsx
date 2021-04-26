@@ -100,7 +100,7 @@ export const LegAppleMan = {
 export const AlphaChain = {
   url: 'https://alphachain.io',
   year: 2021,
-  bgcolor: "rgb(12,24,12)", 
+  bgcolor: "rgb(7,16,36)", 
   textColor: "rgb(246, 23, 254)",
   preview: <div className="SitePreview">
     <img src={AlphaChainScreenshot} className="screenshot" />
