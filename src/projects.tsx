@@ -7,6 +7,8 @@ import RDRScreenshot from './assets/img/rdr-screenshot.png';
 import AlphaChainScreenshot from './assets/img/alpha-chain-screenshot.png';
 import ChladniIMG from './assets/img/chladni.png';
 import DeepdriveWaveforms from './assets/img/deepdrive-waveforms.png';
+import InterferenceShaderIMG from './assets/img/InterferenceShader.png';
+
 
 import {UndulatingText} from './components/UndulatingText';
 
@@ -135,4 +137,16 @@ export const WobblyGridSource = {
     <IoLogoGithub className="largeIcon"/>
     <p>This page is built using React and TypeScript. Click here to read the source code on GitHub...</p>
   </div>
+}
+
+export const InterferenceShader = {
+  url: 'http://joel.forsale/3dcube',
+  year: 2021,
+  bgcolor: "#050000",
+  preview: <img  src={InterferenceShaderIMG} className="ContainPreview" />,
+}
+
+export const InterferencePatternPreview = {
+  url: 'http://joel.forsale/ooo',
+  bgcolor: 'url(#pattern1)',
 }

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './Home.sass';
 import {WobblyGeometry, WobblyRect, WobblyGrid, WobblyRectContent} from './components/WobblyGeometry';
+import InterferencePattern from './assets/img/InterferencePattern.png';
 
-import {Shaneen, LegAppleMan, DeepDrive, ChladniFigures, YouNeedMoreSeaweed, AudioVisualiser, MalcolmTheCat, RitterDeepReading, AlphaChain, Sequencer, WobblyGridSource} from './projects';
+import {Shaneen, LegAppleMan, DeepDrive, ChladniFigures, YouNeedMoreSeaweed, AudioVisualiser, MalcolmTheCat, RitterDeepReading, AlphaChain, Sequencer, WobblyGridSource, InterferenceShader, InterferencePatternPreview} from './projects';
 import {SideBarNavigation} from './components/SideBar';
 
 const cols = 4, rows= 4;
@@ -12,7 +13,9 @@ let labels = [
   LegAppleMan,
   DeepDrive,
   ChladniFigures,
+  InterferenceShader,
   YouNeedMoreSeaweed,
+  InterferencePatternPreview,
   AudioVisualiser,
   MalcolmTheCat,
   RitterDeepReading,
@@ -35,7 +38,7 @@ let labels = [
   //{label:"a typescript program for calculating Mel frequency cepstral coefficients"},
   //{label:"a react library for interactive time plots"},
   
-]
+].sort(() => Math.random() * 2-1)
 
 function addBufferCells(content: WobblyRectContent[], {rows, cols}:{rows:number, cols:number}) {
   // Add top row
@@ -77,6 +80,11 @@ function App() {
   return <div className="App">
     <SideBarNavigation/>
     <WobblyGeometry>
+      <defs>
+        <pattern id="pattern1" viewBox="0 0 100 100" width="1" height="1" patternContentUnits="objectBoundingBox">
+          <image href={InterferencePattern} x="-100" y="-100" width="300" height="300" />
+        </pattern>
+      </defs>
       <WobblyGrid 
         rows={rows} 
         cols={cols }
